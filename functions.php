@@ -24,9 +24,11 @@ function getCategories() {
 
 function getImages() {
   $connection = db_connect();
-  $query = 'SELECT `image` FROM articles';
+  $query = 'SELECT `image`,`id` FROM articles';
   $stmt = $connection->query($query);
   $results = $stmt->fetch();
   // var_dump($results);
   return $results['image'];
+;
 }
+
