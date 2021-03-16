@@ -8,7 +8,3 @@
   <title><fastcode/></title>
 </head>
 <body>
-
-  <div class="background-color"></div>
-  <div class="background"></div>
-  <div class="container page">

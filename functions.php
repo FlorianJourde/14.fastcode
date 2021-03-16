@@ -29,6 +29,30 @@ function getImages() {
   $results = $stmt->fetch();
   // var_dump($results);
   return $results['image'];
-;
 }
 
+function getTitle() {
+  $connection = db_connect();
+  $query = 'SELECT `title` FROM articles';
+  $stmt = $connection->query($query);
+  $results = $stmt->fetch();
+  // var_dump($results);
+  return $results;
+}
+
+function getContent() {
+  $connection = db_connect();
+  $query = 'SELECT `content` FROM articles';
+  $stmt = $connection->query($query);
+  $results = $stmt->fetch();
+  // var_dump($results);
+  return $results;
+}
+
+function getArticles() {
+  $connection = db_connect();
+  $query = 'SELECT * FROM articles';
+  $stmt = $connection->query($query);
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
+}
