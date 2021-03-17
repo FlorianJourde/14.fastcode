@@ -55,3 +55,12 @@ function addUser($lastname, $firstname, $nickname, $password, $email) {
   // var_dump($query);
   $con->query($query);
 }
+
+function userConnect($email) {
+  $con = db_connect();
+  $query = "SELECT * FROM users
+  WHERE users.email = '$email'";
+  $stmt = $con->query($query);
+  $results = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $results;
+}

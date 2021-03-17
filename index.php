@@ -12,9 +12,16 @@ include 'navbar.php';
 </div>
   
 <div class="container page">
-  <a href="form.php">
-    <button type="submit" class="btn btn-dark">Ajouter un utilisateur</button>
-  </a>
+<div class="row">
+  <div class="col buttons">
+    <a href="login.php">
+      <button type="submit" class="btn btn-dark">Se connecter</button>
+    </a>
+    <a href="register.php">
+      <button type="submit" class="btn btn-dark">S'enregistrer</button>
+    </a>
+  </div>
+</div>
   <?php $articles = getArticles (); ?>
   <?php foreach ($articles as $article) { ?>
   <div class="row article">
