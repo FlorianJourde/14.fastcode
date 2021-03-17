@@ -9,12 +9,13 @@ include 'navbar.php';
 <?php
 if(isset($_POST) && !empty($_POST)) {
   $post = $_POST;
-  // var_dump($post);
   $email = $post['email'];
   $password = $post['password'];
   $user = userConnect($email);
   if(password_verify($password, $user['password'])) {
-    echo "Connexion réussie";
+    session_start();
+    $_SESSION['firstname'] = $user['firstname'];
+    header('location:index.php');
   } else {
     echo "Connexion échouée";
   }
