@@ -56,3 +56,11 @@ function getArticles() {
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $results;
 }
+
+function getUser() {
+  $connection = db_connect();
+  $query = 'SELECT * FROM articles';
+  $stmt = $connection->query($query);
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
+}
