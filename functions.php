@@ -22,9 +22,6 @@ function getCategories() {
   return $results;
 }
 
-
-
-
 function getArticles() {
   $connection = db_connect();
   $query = 'SELECT * FROM articles';
@@ -32,7 +29,6 @@ function getArticles() {
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $results;
 }
-
 
 function getArticle($id) {
   $connection = db_connect();
@@ -51,4 +47,11 @@ function getUser($id) {
   $stmt = $connection->query($query);
   $results = $stmt->fetch();
   return $results;
+}
+
+function addUser($lastname, $firstname, $nickname, $password, $email) {
+  $con = db_connect();
+  $query = "INSERT INTO users (id, lastname, firstname, nickname, password, email, gender, inscription) VALUES (null, '$lastname', '$firstname', '$nickname', '$password', '$email', 'M', '2021-03-05')";
+  // var_dump($query);
+  $con->query($query);
 }

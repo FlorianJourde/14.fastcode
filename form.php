@@ -1,22 +1,35 @@
-<form method="post" action="traitementform.php">
+<?php
+include 'header.php';
+include 'functions.php';
+include 'navbar.php';
 
-<p>    On insèrera ici les éléments de notre formulaire.</p>
+// include 'register.php';
+?>
 
-<div>
-
-  <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com" name="email">
-    </div>
+<div class="container page">
+<form action="register.php" method="post">
+  <div class="form-group">
+    <label for="lastname">Nom</label>
+    <input name="lastname" type="lastname" class="form-control" id="lastname" placeholder="Nom">
   </div>
-  <div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword" name="password">
-    </div>
+  <div class="form-group">
+    <label for="firstname">Prénom</label>
+    <input name="firstname" type="firstname" class="form-control" id="firstname" placeholder="Prénom">
   </div>
+  <div class="form-group">
+    <label for="nickname">Pseudo</label>
+    <input name="nickname" type="nickname" class="form-control" id="nickname" placeholder="Pseudo">
+  </div>
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input name="password" type="lastname" class="form-control" id="password" placeholder="Mot de passe">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input name="email" type="lastname" class="form-control" id="email" placeholder="Email">
+  </div>
+  <button type="submit" class="btn btn-dark">Ajouter</button>
 </form>
 </div>
 
-</form>
+<?php include 'footer.php'?>
