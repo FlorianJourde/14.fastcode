@@ -1,6 +1,6 @@
 <?php include 'header.php'?>
 <?php include 'functions.php'?>
-<?php include 'article.php'?>
+
 
 <div class="background-color"></div>
 <div class="background"></div>

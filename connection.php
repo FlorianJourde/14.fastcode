@@ -1,4 +1,4 @@
 <?php
 
 $user = 'root';
-$pass = '6434';
+$pass = 'darwing';

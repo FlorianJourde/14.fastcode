@@ -22,37 +22,33 @@ function getCategories() {
   return $results;
 }
 
-function getImages() {
-  $connection = db_connect();
-  $query = 'SELECT `image`,`id` FROM articles';
-  $stmt = $connection->query($query);
-  $results = $stmt->fetch();
-  // var_dump($results);
-  return $results['image'];
-}
 
-function getTitle() {
-  $connection = db_connect();
-  $query = 'SELECT `title` FROM articles';
-  $stmt = $connection->query($query);
-  $results = $stmt->fetch();
-  // var_dump($results);
-  return $results;
-}
 
-function getContent() {
-  $connection = db_connect();
-  $query = 'SELECT `content` FROM articles';
-  $stmt = $connection->query($query);
-  $results = $stmt->fetch();
-  // var_dump($results);
-  return $results;
-}
 
 function getArticles() {
   $connection = db_connect();
   $query = 'SELECT * FROM articles';
   $stmt = $connection->query($query);
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
+}
+
+
+function getArticle($id) {
+  $connection = db_connect();
+  $query = 'SELECT * FROM articles
+  WHERE id =' . $id;
+  $stmt = $connection->query($query);
+  $results = $stmt->fetch();
+  return $results;
+}
+
+function getUser($id) {
+  $connection = db_connect();
+  $query = 'SELECT * FROM users
+  INNER JOIN articles ON articles.user_id = users.id
+  WHERE users.id =' . $id;
+  $stmt = $connection->query($query);
+  $results = $stmt->fetch();
   return $results;
 }
