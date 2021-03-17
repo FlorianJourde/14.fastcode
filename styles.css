@@ -127,3 +127,15 @@ a:hover {
   color: grey;
   text-decoration: none;
 }
+
+.header-image{
+  display: flex;
+  width: fit-content;
+  height: 200px;
+  object-fit: cover;
+}
+
+.header-height{
+  /* height: 200px; */
+  
+}

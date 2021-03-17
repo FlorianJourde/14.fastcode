@@ -1,6 +1,7 @@
 <?php include 'header.php'?>
 <?php include 'functions.php'?>
 
+
 <div class="background-color"></div>
 <div class="background"></div>
 
@@ -38,5 +39,4 @@
   <?php } ?>
 </div>
 
-  
 <?php include 'footer.php'?>
