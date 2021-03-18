@@ -27,6 +27,7 @@ function getArticles() {
   $query = 'SELECT * FROM articles';
   $stmt = $connection->query($query);
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // var_dump($results);
   return $results;
 }
 
@@ -64,3 +65,27 @@ function userConnect($email) {
   $results = $stmt->fetch(PDO::FETCH_ASSOC);
   return $results;
 }
+
+function getArticlesFromCategory($id) {
+  $con = db_connect();
+  $query = "SELECT articles.id,  articles.title, articles.image, articles.content FROM articles
+  INNER JOIN articles_categories
+  ON articles_categories.article_id = articles.id
+  INNER JOIN categories
+  ON categories.id = articles.id
+  WHERE articles_categories.category_id =" . $id;
+  $stmt = $con->query($query);
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // var_dump($results);
+  return $results;
+  
+}
+
+// function getArticles() {
+//   $connection = db_connect();
+//   $query = 'SELECT * FROM articles';
+//   $stmt = $connection->query($query);
+//   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//   var_dump($results);
+//   return $results;
+// }
