@@ -5,25 +5,9 @@ include 'navbar.php';
 ?>
 
 <div class="container page">
-
-  <?php
-  if(isset($_POST) && !empty($_POST)) {
-    $post = $_POST;
-    $email = $post['email'];
-    $password = $post['password'];
-    $user = userConnect($email);
-    if(password_verify($password, $user['password'])) {
-      session_start();
-      $_SESSION['firstname'] = $user['firstname'];
-      header('location:index.php');
-    } else {
-      echo "Connexion échouée";
-    }
-  }
-  ?>
-
-<!-- <?php var_dump($user); ?> -->
-  <h3>Se connecter</h3>
+  <!-- <div class="row header"> -->
+    <h3>Ajouter un article</h3>
+  <!-- </div> -->
   <form action="" method="post">
     <div class="form-group">
       <label for="email">Email</label>

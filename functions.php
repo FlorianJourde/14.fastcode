@@ -51,7 +51,8 @@ function getUser($id) {
 
 function addUser($lastname, $firstname, $nickname, $password, $email) {
   $con = db_connect();
-  $query = "INSERT INTO users (id, lastname, firstname, nickname, password, email, gender, inscription) VALUES (null, '$lastname', '$firstname', '$nickname', '$password', '$email', 'M', '2021-03-05')";
+  $query = "INSERT INTO users (id, lastname, firstname, nickname, password, email, gender, inscription)
+  VALUES (null, '$lastname', '$firstname', '$nickname', '$password', '$email', 'M', '2021-03-05')";
   // var_dump($query);
   $con->query($query);
 }
@@ -63,4 +64,12 @@ function userConnect($email) {
   $stmt = $con->query($query);
   $results = $stmt->fetch(PDO::FETCH_ASSOC);
   return $results;
+}
+
+function addArticle($title, $user_id, $date, $images, $email) {
+  $con = db_connect();
+  $query = "INSERT INTO articles (id, title, user_id, date, images, content)
+  VALUES (null, '$title', '$user_id', '$date', '$images', '$email', 'M', '2021-03-05')";
+  // var_dump($query);
+  $con->query($query);
 }

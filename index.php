@@ -12,8 +12,16 @@ include 'navbar.php';
 </div>
   
 <div class="container page">
-
-
+<?php
+  if(isset($user) && !empty($user)) { ?>
+  <div class="row">
+    <div class="col buttons">
+      <a href="add_article.php">
+        <button type="submit" class="btn btn-warning">Ajouter un article</button>
+      </a>
+    </div>
+  </div>
+  <?php } ?>
   <?php $articles = getArticles (); ?>
   <?php foreach ($articles as $article) { ?>
   <div class="row article">
