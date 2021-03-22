@@ -22,25 +22,27 @@ if(isset($_POST) && !empty($_POST)) {
   <form action="" method="post">
     <div class="form-group">
       <label for="lastname">Nom</label>
-      <input name="lastname" type="lastname" class="form-control" id="lastname" placeholder="Nom">
+      <input name="lastname" type="lastname" class="form-control" id="lastname">
     </div>
     <div class="form-group">
       <label for="firstname">Prénom</label>
-      <input name="firstname" type="firstname" class="form-control" id="firstname" placeholder="Prénom">
+      <input name="firstname" type="firstname" class="form-control" id="firstname">
     </div>
     <div class="form-group">
       <label for="nickname">Pseudo</label>
-      <input name="nickname" type="nickname" class="form-control" id="nickname" placeholder="Pseudo">
+      <input name="nickname" type="nickname" class="form-control" id="nickname">
     </div>
     <div class="form-group">
       <label for="password">Mot de passe</label>
-      <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe">
+      <input name="password" type="password" class="form-control" id="password">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+      <input name="email" type="email" class="form-control" id="email">
     </div>
-    <button type="submit" class="btn btn-dark">Ajouter</button>
+    <div class="row">
+      <button type="submit" class="submit-btn btn-dark">S'enregistrer</button>
+    </div>
   </form>
 </div>
 

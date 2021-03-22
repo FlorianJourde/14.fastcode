@@ -6,6 +6,16 @@ include 'navbar.php';
 
 <div class="container page">
 
+  <?php 
+  if(isset($_GET) && !empty($_GET)){ ?>
+    <div class="text-center alert alert-<?php echo $_GET['status']; ?>" role="alert">
+      <?php echo "Erreur !"; ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <?php } ?>
+
   <?php
   if(isset($_POST) && !empty($_POST)) {
     $post = $_POST;
@@ -14,7 +24,13 @@ include 'navbar.php';
     $user = userConnect($email);
     if(password_verify($password, $user['password'])) {
       session_start();
-      $_SESSION['firstname'] = $user['firstname'];
+      $_SESSION['users'] = [
+        'id' => $user['id'],
+        'lastname' => $user['lastname'],
+        'firstname' => $user['firstname'],
+        'nickname' => $user['nickname'],
+        'email' => $user['email']
+    ];
       header('location:index.php');
     } else {
       echo "Connexion échouée";
@@ -27,13 +43,15 @@ include 'navbar.php';
   <form action="" method="post">
     <div class="form-group">
       <label for="email">Email</label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+      <input name="email" type="email" class="form-control" id="email">
     </div>
     <div class="form-group">
       <label for="password">Mot de passe</label>
-      <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe">
+      <input name="password" type="password" class="form-control" id="password">
     </div>
-    <button type="submit" class="btn btn-dark">Connexion</button>
+    <div class="row">
+      <button type="submit" class="submit-btn btn-dark">Connexion</button>
+    </div>
   </form>
 </div>
 

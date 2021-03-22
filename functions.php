@@ -50,6 +50,15 @@ function getUser($id) {
   return $results;
 }
 
+
+function getUsers() {
+  $connection = db_connect();
+  $query = "SELECT * FROM users";
+  $stmt = $connection->query($query);
+  $results = $stmt->fetchAll();
+  return $results;
+}
+
 function addUser($lastname, $firstname, $nickname, $password, $email) {
   $con = db_connect();
   $query = "INSERT INTO users (id, lastname, firstname, nickname, password, email, gender, inscription)
@@ -67,15 +76,6 @@ function userConnect($email) {
   return $results;
 }
 
-<<<<<<< HEAD
-function addArticle($title, $user_id, $date, $images, $email) {
-  $con = db_connect();
-  $query = "INSERT INTO articles (id, title, user_id, date, images, content)
-  VALUES (null, '$title', '$user_id', '$date', '$images', '$email', 'M', '2021-03-05')";
-  // var_dump($query);
-  $con->query($query);
-}
-=======
 function getArticlesFromCategory($id) {
   $con = db_connect();
   $query = "SELECT articles.id,  articles.title, articles.image, articles.content FROM articles
@@ -88,7 +88,14 @@ function getArticlesFromCategory($id) {
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   // var_dump($results);
   return $results;
-  
+}
+
+function addArticle($title, $user_id, $image, $content) {
+  $con = db_connect();
+  $query =
+    "INSERT INTO articles (id, title, user_id, date, image, content)
+    VALUES (null, '$title', '$user_id', NOW(), '$image', '$content')";
+    $con->query($query);
 }
 
 // function getArticles() {
@@ -99,4 +106,3 @@ function getArticlesFromCategory($id) {
 //   var_dump($results);
 //   return $results;
 // }
->>>>>>> 49aa149d52160f01b2885626086dede2092b8dd1
