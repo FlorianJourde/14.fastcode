@@ -26,16 +26,14 @@ html {
 }
 .page {
   padding: 20px 20px;
-  background-color: rgba(0, 0, 0, 5);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   height: max-content;
   min-height: 100%;
   width: 100%;
 }
 .navbar {
   padding: 20 40px;
-  background-color: rgba(0, 0, 0, 5);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   height: max-content;
   width: 100%;
 }
@@ -62,16 +60,21 @@ html {
 }
 .category {
   padding: 0 10px;
+  justify-content: space-between;
+  display: flex;
+  /* font-size: 10px; */
 }
 .navbar {
   width: 100%;
 }
 .navbar-categories {
+  justify-content: space-between;
   vertical-align: middle;
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 0;
   display: flex;
+  /* font-size: 8px; */
 }
 .image-article {
   display: flex;
@@ -105,11 +108,24 @@ a:hover {
 }
 .btn {
   border-radius: 0px;
-  margin: 0 0 15px 15px;
-  /* right: 0; */
-  /* top: 50px; */
-  /* position: relative; */
-  /* float: right; */
+  margin: 0 0 0 15px;
+  display: inline-flex;
+}
+
+.submit-btn {
+  display: inline-flex;
+  margin: 20px auto;
+  padding: 8px 20px;
+}
+.form-control {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0px;
+  border: 0px;
+  padding: 10px;
+  min-height: 50px;
+}
+.form-control:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 
