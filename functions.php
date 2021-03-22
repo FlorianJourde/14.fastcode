@@ -68,7 +68,7 @@ function userConnect($email) {
 
 function getArticlesFromCategory($id) {
   $con = db_connect();
-  $query = "SELECT articles.id,  articles.title, articles.image, articles.content FROM articles
+  $query = "SELECT articles.id,  articles.title, articles.image, articles.content  FROM articles
   INNER JOIN articles_categories
   ON articles_categories.article_id = articles.id
   INNER JOIN categories
@@ -76,10 +76,22 @@ function getArticlesFromCategory($id) {
   WHERE articles_categories.category_id =" . $id;
   $stmt = $con->query($query);
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // var_dump($results);
+  //  var_dump($results);
   return $results;
   
 }
+
+function getComments($id) {
+  $con = db_connect();
+  $query = "SELECT nickname, date, title, content  FROM comments";
+  $stmt = $con->query($query);
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  //  var_dump($results);
+  return $results;
+  
+}
+
+
 
 // function getArticles() {
 //   $connection = db_connect();

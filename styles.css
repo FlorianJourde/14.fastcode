@@ -111,3 +111,21 @@ a:hover {
   /* position: relative; */
   /* float: right; */
 }
+
+
+
+#comment{
+ background-color: darkgrey;
+}
+
+
+#commenttitle{
+  color: darkgreen;
+  /* background-color: darkorange; */
+}
+
+#commentdate{
+  text-align: right;
+  /* background-color: darkviolet; */
+  
+}
