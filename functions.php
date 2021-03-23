@@ -44,7 +44,7 @@ function getUser($id) {
   $connection = db_connect();
   $query = 'SELECT * FROM users
   INNER JOIN articles ON articles.user_id = users.id
-  WHERE users.id =' . $id;
+  WHERE articles.id =' . $id;
   $stmt = $connection->query($query);
   $results = $stmt->fetch();
   return $results;
@@ -93,7 +93,10 @@ function getArticlesFromCategory($id) {
 
 function getComments($id) {
   $con = db_connect();
-  $query = "SELECT nickname, date, title, content  FROM comments";
+  $query = "SELECT comments.nickname, comments.date, comments.title, comments.content  FROM comments
+  INNER JOIN articles
+  ON articles.id = comments.article_id
+  WHERE article_id = " .$id ;
   $stmt = $con->query($query);
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   //  var_dump($results);
@@ -108,7 +111,27 @@ function addArticle($title, $user_id, $image, $content) {
     $con->query($query);
 }
 
+function getArticlesComments($id) {
+  $con = db_connect();
+  $query = 'SELECT * FROM comments
+   WHERE comments.article_id = :id';
+  $stmt = $con->prepare($query);
+  $stmt->bindValue(':id', $id);
+  $stmt -> execute();
+  $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $comments;
+}
 
+function addComment($id, $pseudo, $content) {
+  $con = db_connect();
+  $query = "INSERT INTO comments (id, nickname, content, NOW(), article_id)
+  VALUES (null, :nickname, :content, NOW(), :article_id)";
+  $stmt = $con ->prepare($query);
+  $stmt->bindValue(':article_id', $id, PDO::PARAM_INT);
+  $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_INT);
+  $stmt->bindValue(':content', $content, PDO::PARAM_INT);
+  $stmt->execute();
+}
 
 // function getArticles() {
 //   $connection = db_connect();

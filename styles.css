@@ -128,20 +128,21 @@ a:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-
-
-#comment{
- background-color: darkgrey;
+#comments {
+  background-color: darkgrey;
 }
 
-
-#commenttitle{
+#commenttitle {
   color: darkgreen;
   /* background-color: darkorange; */
 }
 
-#commentdate{
+#commentdate {
   text-align: right;
   /* background-color: darkviolet; */
-  
+}
+.comment-box {
+  /* background: rgba(200, 200, 200, 1); */
+  /* padding: 20px; */
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
 }
