@@ -2,19 +2,27 @@
 require 'functions.php';
 
 if(isset($_POST) && !empty($_POST)) {
-    $id = $_POST['id'];
-    $pseudo = $_POST['pseudo'];
-    $comment = $_POST['comment'];
-    addComment($id, $pseudo, $comment);
+  $id = $_POST['id'];
+  $pseudo = $_POST['pseudo'];
+  $title = $_POST['title'];
+  $comment = $_POST['content'];
+  $article = getArticle($id);
+  addComment($id, $pseudo, $title, $comment, $article['id']);
 };
 
 $comments = getArticleComments($id);
 
-foreach($comments as $comment) { ?>
-  <div class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1"><?php echo $comment['pseudo']?></h5>
-      <small><?php echo $comment['date']?></small>
+foreach ($comments as $comment) { ?>
+  <div id="comments">
+    <div class="row">
+      <div class="col-6">
+        <h4 id="commenttitle"><?php echo $comment['title'] ?></h4>
+      </div>
+      <div class="col-6">
+        <h6 id="commentdate"><?php echo $comment['date'] ?></h6>
+      </div>
     </div>
+    <h6 id="comment-nickname"><?php echo $comment['nickname'] ?></h4>
+    <span id="comment-content"><?php echo $comment['content'] ?></span>
   </div>
 <?php } ?>

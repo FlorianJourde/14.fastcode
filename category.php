@@ -5,9 +5,7 @@ include 'navbar.php';
 
 $id = $_GET["id"];
 // $content = getArticlesFromCategory($id);
-
 // echo $content;
-
 ?>
   
 <div class="container page">

@@ -62,7 +62,6 @@ html {
   padding: 0 10px;
   justify-content: space-between;
   display: flex;
-  /* font-size: 10px; */
 }
 .navbar {
   width: 100%;
@@ -74,7 +73,6 @@ html {
   margin-bottom: auto;
   margin-right: 0;
   display: flex;
-  /* font-size: 8px; */
 }
 .image-article {
   display: flex;
@@ -129,20 +127,25 @@ a:hover {
 }
 
 #comments {
-  background-color: darkgrey;
+  background-color: rgba(200, 200, 200, 1);
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 #commenttitle {
-  color: darkgreen;
-  /* background-color: darkorange; */
+  color: rgba(50, 50, 50, 1);
 }
 
 #commentdate {
   text-align: right;
-  /* background-color: darkviolet; */
+  color: rgba(100, 100, 100, 1);
 }
-.comment-box {
-  /* background: rgba(200, 200, 200, 1); */
-  /* padding: 20px; */
-  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+#comment-content,
+#comment-nickname {
+  color: rgba(100, 100, 100, 1);
+}
+.titre_commentaires {
+  font-size: x-large;
+  margin: 0 10px 20px 20px;
+  display: inline-block;
 }

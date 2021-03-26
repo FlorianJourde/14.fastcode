@@ -23,21 +23,26 @@ $comments = getComments($id);
     <p><?php echo $article['content'] ?></p>
   </div>
   
+  <div >
+    <span class="titre_commentaires">Commentaires</span>
+    <span id="badge" class="badge badge-dark badge-pill"><?php echo count($comments) ?></span>
+  </div>
+    <div id="coms">
   <?php foreach ($comments as $comment) { ?>
     <div id="comments">
       <div class="row">
         <div class="col-6">
-          <h5 id="commenttitle"><?php echo $comment['title'] ?></h5>
+          <h4 id="commenttitle"><?php echo $comment['title'] ?></h4>
         </div>
         <div class="col-6">
           <h6 id="commentdate"><?php echo $comment['date'] ?></h6>
         </div>
       </div>
-
-      <h4><?php echo $comment['nickname'] ?></h4>
-      <span><?php echo $comment['content'] ?></span>
+      <h6 id="comment-nickname"><?php echo $comment['nickname'] ?></h4>
+      <span id="comment-content"><?php echo $comment['content'] ?></span>
     </div>
   <?php } ?>
+  </div>
   <div class="comment-box">
     <span class="titre_commentaires">Ajouter un commentaire</span>
     <form>
@@ -45,6 +50,11 @@ $comments = getComments($id);
       <div class="form-group">
         <label for="pseudo">Pseudo</label>
         <input class="form-control" type="text" id="pseudo" name="pseudo">
+      </div>
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input class="form-control" id="title" name="title" name="title">
+      </div>
       </div>
       <div class="form-group">
         <label for="comment">Contenu</label>

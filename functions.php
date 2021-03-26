@@ -50,7 +50,6 @@ function getUser($id) {
   return $results;
 }
 
-
 function getUsers() {
   $connection = db_connect();
   $query = "SELECT * FROM users";
@@ -82,11 +81,10 @@ function getArticlesFromCategory($id) {
   INNER JOIN articles_categories
   ON articles_categories.article_id = articles.id
   INNER JOIN categories
-  ON categories.id = articles.id
-  WHERE articles_categories.category_id =" . $id;
+  ON articles_categories.category_id = categories.id
+  WHERE articles_categories.category_id = " . $id;
   $stmt = $con->query($query);
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  //  var_dump($results);
   return $results;
   
 }
@@ -111,7 +109,7 @@ function addArticle($title, $user_id, $image, $content) {
     $con->query($query);
 }
 
-function getArticlesComments($id) {
+function getArticleComments($id) {
   $con = db_connect();
   $query = 'SELECT * FROM comments
    WHERE comments.article_id = :id';
@@ -122,14 +120,33 @@ function getArticlesComments($id) {
   return $comments;
 }
 
-function addComment($id, $pseudo, $content) {
+// function addComment($id, $nickname, $comment, $article_id) {
+//   $con = db_connect();
+//   $query = "INSERT INTO comments (id, nickname, content, NOW(), article_id)
+//   VALUES (null, '$nickname', '$comment', NOW(), '$article_id')";
+//   // $stmt = $con ->prepare($query);
+//   $con->query($query);
+//   // $stmt->bindValue(':article_id', $id, PDO::PARAM_INT);
+//   // $stmt->execute();
+// }
+
+// function addUser($lastname, $firstname, $nickname, $password, $email) {
+//   $con = db_connect();
+//   $query = "INSERT INTO users (id, lastname, firstname, nickname, password, email, gender, inscription)
+//   VALUES (null, '$lastname', '$firstname', '$nickname', '$password', '$email', 'M', '2021-03-05')";
+//   // var_dump($query);
+//   $con->query($query);
+// }
+
+function addComment($id, $pseudo, $title, $comment) {
   $con = db_connect();
-  $query = "INSERT INTO comments (id, nickname, content, NOW(), article_id)
-  VALUES (null, :nickname, :content, NOW(), :article_id)";
+  $query = "INSERT INTO comments (id, nickname, title, content, article_id)
+  VALUES (null, :nickname, :title, :content, :article_id)";
   $stmt = $con ->prepare($query);
   $stmt->bindValue(':article_id', $id, PDO::PARAM_INT);
-  $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_INT);
-  $stmt->bindValue(':content', $content, PDO::PARAM_INT);
+  $stmt->bindValue(':nickname', $pseudo, PDO::PARAM_STR);
+  $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+  $stmt->bindValue(':content', $comment, PDO::PARAM_STR);
   $stmt->execute();
 }
 
