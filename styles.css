@@ -77,7 +77,8 @@ html {
 .image-article {
   display: flex;
   width: fit-content;
-  height: 200px;
+  top: 50%;
+  transform: translateY(-50%);
   object-fit: cover;
 }
 .content-article {
@@ -92,6 +93,7 @@ html {
   height: 200px;
   width: fit-content;
   margin: 40px 0;
+  overflow: hidden;
 }
 a,
 a:hover {
