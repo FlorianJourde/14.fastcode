@@ -1,6 +1,6 @@
 # Fastcode - Learn productivity tips
 
-![Design preview for the Order summary card coding challenge](./design/desktop-preview.png)
+![Design preview for Fastcode](./design/desktop-preview.png)
 
 ## About
 
