@@ -4,6 +4,6 @@
 
 ## About
 
-Collaborating exercice to lear PHP : making a blog with HTML, CSS, JS, PHP, SQL...
+Collaborating exercice to learn PHP : making a blog with HTML, CSS, JS, PHP, SQL...
 
 **HTML, CSS, JavaScript, PHP, SQL**
